@@ -1,0 +1,7 @@
+/* Импорт стилей для отдельных частей сайта */
+@import url("header.css");
+
+@import url("footer.css");
+
+/* Импорт глобальных стилей */
+@import url("global.css");

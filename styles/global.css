@@ -1,0 +1,19 @@
+/* Импорт шрифта из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+
+	/* Глобальные переменные */
+	--header-height: 6rem;
+	--footer-height: 6rem;
+
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background-color: rgb(15, 15, 15);
+	padding-top: var(--header-height);
+}

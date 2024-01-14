@@ -1,0 +1,28 @@
+footer {
+	--footer-padding-x: 1rem;
+	--footer-padding-y: 3rem;
+
+	height: calc(var(--footer-height) - var(--footer-padding-y) * 2);
+	padding: var(--footer-padding-y) var(--footer-padding-x);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+
+	& > p {
+		opacity: 0.5;
+	}
+
+	& > .socials {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		& > a {
+			text-decoration: none;
+			color: white;
+			opacity: 0.5;
+		}
+	}
+}
