@@ -1,7 +1,10 @@
 /* Импорт стилей для отдельных частей сайта */
 @import url("header.css");
-
+@import url("hero.css");
+@import url("memes.css");
+@import url("feedback.css");
 @import url("footer.css");
+@import url("modal.css");
 
 /* Импорт глобальных стилей */
 @import url("global.css");

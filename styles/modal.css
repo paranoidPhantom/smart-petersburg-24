@@ -1,0 +1,73 @@
+dialog {
+    position: fixed;
+    transition: display 0.3s allow-discrete, overlay 0.3s allow-discrete,
+        all 0.3s;
+    inset: 0;
+	width: 80%;
+	height: 70%;
+	border: none;
+	border-radius: 1rem;
+	padding: 4rem;
+
+	& > .examples {
+		position: relative;
+		overflow-x: auto;
+		height: 50%;
+		user-select: none;
+
+		display: flex;
+
+		scroll-behavior: smooth;
+		
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		& > img {
+			margin-right: 1rem;
+		}
+		& > .left-scroll {
+			position: sticky;
+			left: 5%;
+			filter: drop-shadow(0 0 0.2rem black);
+			& > svg {
+				position: absolute;
+			}
+		}
+		& > .right-scroll {
+			position: sticky;
+			left: 95%;
+			filter: drop-shadow(0 0 0.2rem black);
+			& > svg {
+				position: absolute;
+			}
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	& > .close {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+	}
+
+	/* Анимированные парметры */
+    opacity: 0;
+	scale: 0.7;
+	rotate: 10deg;
+    &[open] {
+        opacity: 1;
+        scale: 1;
+		rotate: 0deg;
+    }
+}
+
+@starting-style {
+    dialog[open] {
+        opacity: 0;
+        scale: 0.7;
+		rotate: 10deg;
+    }
+}

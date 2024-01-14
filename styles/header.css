@@ -20,9 +20,13 @@ header {
 	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	backdrop-filter: blur(0.5rem);
+	box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
 
 	& > .logo {
 		height: 100%;
+		& > img {
+			height: 100%;
+		}
 	}
 
 	& > .navbar {

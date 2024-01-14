@@ -15,29 +15,98 @@
     <body>
 		<!-- Шапка сайта -->
 		<header>
-			<img class="logo" src="/media/favicon.png" alt="Логотип">
+			<a class="logo" href="#">
+				<img src="/media/favicon.png" alt="Логотип">
+			</a>
 			<nav class="navbar">
-				<a href="#">О нас</a>
-				<a href="#">Мемы</a>
-				<a href="#">Фидбек</a>
+				<a href="#about">О нас</a>
+				<a href="#memes">Мемы</a>
+				<a href="#feedback">Фидбек</a>
 			</nav>
-			<button class="authenticate"></button>
+			<button class="authenticate">
+				Войти
+				<!-- <div class="dropdown">
+					<div class="topbar">
+						<button>Вход</button>
+						<button>Регистрация</button>
+					</div>
+				</div> -->
+			</button>
 		</header>
 		<!-- Основной контент -->
 		<main>
-
+			<section class="hero" id="about">
+				<div class="info">
+					<h2>Добро пожаловать на наш сайт!</h2>
+					<p>
+						Культура мемов стала очень популярна за последние 10 лет, поэтому каждому пользователю интернета стоит понимать, что ему присылают.
+						<br>
+						На этом сайте собранны лучшие мемы 2023 года! Здесь подробно рассказано о каждом меме и его значении.
+					</p>
+				</div>
+				<img src="/media/hero.png" alt="Ухты пухты">
+			</section>
+			<hr>
+			<h1 style="margin-left: 5%;">Мемы</h1>
+			<section class="memes" id="memes">
+				
+			</section>
+			<hr>
+			<h1 style="margin-left: 10%;">Обратная связь</h1>
+			<section class="feedback" id="feedback">
+				<div class="form">
+					<h1>Нам важно что вы думаете</h1>
+					<div class="user-info">
+						<div class="field">
+							<p>Почта</p>
+							<input class="email" type="text" name="email" placeholder="tolik.bolik@mail.ru">
+						</div>
+						<div class="field">
+							<p>Имя</p>
+							<input class="name" type="text" placeholder="Талян">
+						</div>
+					</div>
+					<p>Комментарий</p>
+					<textarea class="comment" placeholder="Сайт фигня потому-что..."></textarea>
+					<button class="submit">Отправить</button>
+				</div>
+				<div class="sent" style="display: none;">
+					<h1>Комментарий отправлен</h1>
+					<p>Спасибо за обратную связь!</p>
+				</div>
+				<video class="nerd" src="/media/nerd.mp4" autoplay loop muted></video>
+			</section>
 		</main>
 		<!-- Подвал сайта -->
 		<footer>
 			<p>
-				&#169 2024 - Братки International
+				&#169 Братки Интернешинал, 2024
 			</p>
-			<p>
+			<p title="Проще позвонить чем у кого-то занимать!">
 				Наш телефон - 8 (800) 555 35-35
 			</p>
 			<div class="socials">
-				
+				<p>Наш мемолог:</p>
+				<a href="https://www.youtube.com/@tolikacix" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765c1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6l5.207 3.005l-5.212 2.995z" fill="currentColor"/></svg>
+				</a>
 			</div>
 		</footer>
+		<!-- Прочие элементы (модальные окна и т.п.) -->
+		<dialog>
+			<button class="close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12L5.47 6.53a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>
+			</button>
+			<h1 class="name"></h1>
+			<div class="examples">
+				<button class="right-scroll">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m14.475 12l-7.35-7.35q-.375-.375-.363-.888t.388-.887q.375-.375.888-.375t.887.375l7.675 7.7q.3.3.45.675t.15.75q0 .375-.15.75t-.45.675l-7.7 7.7q-.375.375-.875.363T7.15 21.1q-.375-.375-.375-.888t.375-.887z"/></svg>
+				</button>
+				<button class="left-scroll">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m3.55 12l7.35 7.35q.375.375.363.875t-.388.875q-.375.375-.875.375t-.875-.375l-7.7-7.675q-.3-.3-.45-.675T.825 12q0-.375.15-.75t.45-.675l7.7-7.7q.375-.375.888-.363t.887.388q.375.375.375.875t-.375.875z"/></svg>
+				</button>
+			</div>
+			<p class="description"></p>
+		</dialog>
 	</body>
 </html>

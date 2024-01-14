@@ -10,10 +10,20 @@
 	--footer-height: 6rem;
 
 	scroll-behavior: smooth;
-}
+	
+	& > body {
+		margin: 0;
+		background-color: rgb(15, 15, 15);
+		padding-top: var(--header-height);
 
-body {
-	margin: 0;
-	background-color: rgb(15, 15, 15);
-	padding-top: var(--header-height);
+		& button {
+			cursor: pointer;
+			background: none;
+			border: none;
+		}
+		& hr {
+			opacity: 0.1;
+			margin: 3rem 0;
+		}
+	}
 }

@@ -1,0 +1,31 @@
+main {
+
+	& > .hero {
+		background-color: black;
+		box-shadow: 0 0 1rem 1rem black;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap-reverse;
+		gap: 5rem;
+
+		margin: 2rem 0;
+		padding: 3rem;
+		height: max(calc(800px - 40vw), 300px);
+
+		& > .info {
+			max-width: max(60%, 500px);
+			& > h2 {
+				font-weight: 500;
+			}
+			& > p {
+				font-weight: 300;
+				width: 100%;
+			}
+		}
+		& > img {
+			height: 200px;
+		}
+	}
+}
