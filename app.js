@@ -1,6 +1,7 @@
 import { renderMeme } from "./js/renderer.mjs"
 import { setupModal } from "./js/modal.mjs"
 import { setupFeedback } from "./js/feedback.mjs"
+import { setupAuth } from "./js/auth.mjs"
 import supabase from "./js/supabase.mjs"
 
 const renderMemes = async () => {
@@ -16,4 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	renderMemes()
 	setupModal()
 	setupFeedback()
+	setupAuth()
 })

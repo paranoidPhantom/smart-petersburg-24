@@ -2,35 +2,63 @@
 <html lang="ru">
     <head>
         <title>База Мемасов</title>
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="color-scheme" content="dark light">
 		<!-- Скрипты -->
-		<script type="module" defer src="/app.js"></script>
+		<script type="module" defer src="./app.js"></script>
 		<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 		<!-- Основной CSS файл -->
-		<link rel="stylesheet" href="/styles/style.css">
+		<link rel="stylesheet" href="./styles/style.css">
 	</head>
     <body>
 		<!-- Шапка сайта -->
 		<header>
 			<a class="logo" href="#">
-				<img src="/media/favicon.png" alt="Логотип">
+				<img src="./media/favicon.png" alt="Логотип">
 			</a>
 			<nav class="navbar">
 				<a href="#about">О нас</a>
 				<a href="#memes">Мемы</a>
 				<a href="#feedback">Фидбек</a>
 			</nav>
-			<button class="authenticate">
+			<!-- Форма входа -->
+			<button id="authenticate" data-mode="login">
 				Войти
-				<!-- <div class="dropdown">
+				<div class="dropdown hidden">
 					<div class="topbar">
-						<button>Вход</button>
-						<button>Регистрация</button>
+						<div class="login" style="border-top-left-radius: 0.5rem;">Вход</div>
+						<div class="register" style="border-top-right-radius: 0.5rem;">Регистрация</div>
 					</div>
-				</div> -->
+					<hr>
+					<div class="form login">
+						<div class="field">
+							<p>Почта</p>
+							<input type="text" name="email" placeholder="example@mail.ru">
+						</div>
+						<div class="field">
+							<p>Пароль</p>
+							<input type="password" name="password">
+						</div>
+						<div class="submit">Войти</div>
+					</div>
+					<div class="form register">
+						<div class="field">
+							<p>Имя</p>
+							<input type="text" name="name" placeholder="Иван">
+						</div>
+						<div class="field">
+							<p>Почта</p>
+							<input type="text" name="email" placeholder="example@mail.ru">
+						</div>
+						<div class="field">
+							<p>Пароль</p>
+							<input type="password" name="password">
+						</div>
+						<div class="submit">Регистрация</div>
+					</div>
+				</div>
 			</button>
 		</header>
 		<!-- Основной контент -->
@@ -44,12 +72,12 @@
 						На этом сайте собранны лучшие мемы 2023 года! Здесь подробно рассказано о каждом меме и его значении.
 					</p>
 				</div>
-				<img src="/media/hero.png" alt="Ухты пухты">
+				<img src="./media/hero.png" alt="Ухты пухты">
 			</section>
 			<hr>
 			<h1 style="margin-left: 5%;">Мемы</h1>
 			<section class="memes" id="memes">
-				
+				<!-- Сюда суються мемы -->
 			</section>
 			<hr>
 			<h1 style="margin-left: 10%;">Обратная связь</h1>
@@ -74,7 +102,7 @@
 					<h1>Комментарий отправлен</h1>
 					<p>Спасибо за обратную связь!</p>
 				</div>
-				<video class="nerd" src="/media/nerd.mp4" autoplay loop muted></video>
+				<video class="nerd" src="./media/nerd.mp4" autoplay loop muted></video>
 			</section>
 		</main>
 		<!-- Подвал сайта -->
