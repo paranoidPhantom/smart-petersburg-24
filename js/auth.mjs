@@ -6,14 +6,16 @@ const dropdown = authenticate.querySelector(".dropdown")
 const loginAction = dropdown.querySelector(".login .submit")
 const loginFields = {
 	email: dropdown.querySelector(".login input[name='email']"),
-	password: dropdown.querySelector(".login input[name='password']")
+	password: dropdown.querySelector(".login input[name='password']"),
+	error: dropdown.querySelector(".login .err")
 }
 
 const registerAction = dropdown.querySelector(".register .submit")
 const registerFields = {
 	name: dropdown.querySelector(".register input[name='name']"),
 	email: dropdown.querySelector(".register input[name='email']"),
-	password: dropdown.querySelector(".register input[name='password']")
+	password: dropdown.querySelector(".register input[name='password']"),
+	error: dropdown.querySelector(".register .err")
 }
 
 const tabLogin = authenticate.querySelector(".topbar .login")
@@ -48,28 +50,68 @@ export const setupAuth = () => {
 	// Логика авторизации
 
 	loginAction.addEventListener("click", async () => {
+		// Валидируем данные в форме
+
+		loginFields.error.textContent = ""
+		loginAction.disabled = true
+        if (!loginFields.email.value) {
+			loginAction.disabled = false
+            loginFields.error.textContent = "Введите email"
+            return
+        } else if (!loginFields.password.value) {
+			loginAction.disabled = false
+            loginFields.error.textContent = "Введите пароль"
+            return
+        } else if (loginFields.password.value.length < 8) {
+			loginAction.disabled = false
+			loginFields.error.textContent = "Пароль должен быть не менее 8 символов"
+			return
+		}
+		
 		const { error } = await supabase.auth.signInWithPassword({
 			email: loginFields.email.value,
 			password: loginFields.password.value
 		})
 		if (error) {
-
+			loginFields.error.textContent = error.message
 		} else window.location.reload()
 	})
 	registerAction.addEventListener("click", async () => {
+		// Валидируем данные в форме
+
+		registerFields.error.textContent = ""
+        registerAction.disabled = true
+        if (!registerFields.name.value) {
+            registerAction.disabled = false
+            registerFields.error.textContent = "Введите имя"
+            return
+        } else if (!registerFields.email.value) {
+            registerAction.disabled = false
+            registerFields.error.textContent = "Введите email"
+            return
+        } else if (!registerFields.password.value) {
+            registerAction.disabled = false
+            registerFields.error.textContent = "Введите пароль"
+            return
+        } else if (registerFields.password.value.length < 8) {
+            registerAction.disabled = false
+            registerFields.error.textContent = "Пароль должен быть не менее 8 символов"
+            return
+        }
+
 		const { error } = await supabase.auth.signUp(
 			{
-				email: loginFields.email.value,
-				password: loginFields.password.value,
+				email: registerFields.email.value,
+				password: registerFields.password.value,
 				options: {
 					data: {
-						first_name: loginFields.name.value,
+						first_name: registerFields.name.value,
 					}
 				}
 			}
 		)
 		if (error) {
-
+			registerFields.error.textContent = error.message
 		} else window.location.reload()
 	})
 }

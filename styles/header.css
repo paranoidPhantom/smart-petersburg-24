@@ -109,6 +109,15 @@ header {
 					padding: 0.5rem;
 				}
 
+				& > .err {
+					color: red;
+					font-size: 0.8rem;
+					margin: 0;
+					&[disabled] {
+						display: none;
+					}
+				}
+
 				& > .submit {
 					margin: 0.5rem auto;
 					padding: 0.5rem;
