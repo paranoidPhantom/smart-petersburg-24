@@ -41,6 +41,9 @@ header {
 	}
 	& > #authenticate {
 		position: relative;
+		.authenticated & {
+			display: none;
+		}
 		& > .dropdown {
 			position: absolute;
 			right: 0;
@@ -127,6 +130,36 @@ header {
 
 					cursor: pointer;
 				}
+			}
+		}
+	}
+	& #authenticated {
+		display: none;
+	}
+	.authenticated & #authenticated {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		& .divider {
+			border-left: 1px solid rgba(255, 255, 255, 0.1);
+			height: 2rem;
+		}
+		
+		& .note {
+			color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+			width: 0;
+			overflow: hidden;
+			text-overflow: clip;
+			white-space: nowrap;
+			transition: all 0.5s ease-in-out;
+			text-align: right;
+		}
+
+		&:hover {
+			& .note {
+				width: 12rem;
 			}
 		}
 	}

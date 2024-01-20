@@ -1,13 +1,16 @@
 import supabase from "./supabase.mjs"
 
 const authenticate = document.getElementById("authenticate")
+const authenticated = document.getElementById("authenticated")
+const nameInfo = authenticated.querySelector(".name")
 const dropdown = authenticate.querySelector(".dropdown")
 
 const loginAction = dropdown.querySelector(".login .submit")
 const loginFields = {
 	email: dropdown.querySelector(".login input[name='email']"),
 	password: dropdown.querySelector(".login input[name='password']"),
-	error: dropdown.querySelector(".login .err")
+	error: dropdown.querySelector(".login .err"),
+	info: dropdown.querySelector(".login .info")
 }
 
 const registerAction = dropdown.querySelector(".register .submit")
@@ -21,6 +24,8 @@ const registerFields = {
 const tabLogin = authenticate.querySelector(".topbar .login")
 const tabRegister = authenticate.querySelector(".topbar .register")
 
+const logoutButton = document.getElementById("logout")
+
 const toggleVisibility = (event, hide) => {
 	if (event) event.stopPropagation()
 	if (dropdown.classList.contains("hidden")) {
@@ -30,7 +35,15 @@ const toggleVisibility = (event, hide) => {
 	}
 }
 
-export const setupAuth = () => {
+export const setupAuth = async () => {
+	// Проверкяем если пользователь авторизован
+	const { data: { session } } = await supabase.auth.getSession()
+	const user = session ? session.user : undefined
+	if (user) {
+		document.body.classList.add("authenticated")
+		nameInfo.textContent = user.user_metadata.first_name
+	}
+
 	// Функционал окна
 
 	authenticate.addEventListener("click", toggleVisibility)
@@ -68,7 +81,7 @@ export const setupAuth = () => {
 			return
 		}
 		
-		const { error } = await supabase.auth.signInWithPassword({
+		const { data, error } = await supabase.auth.signInWithPassword({
 			email: loginFields.email.value,
 			password: loginFields.password.value
 		})
@@ -112,6 +125,14 @@ export const setupAuth = () => {
 		)
 		if (error) {
 			registerFields.error.textContent = error.message
-		} else window.location.reload()
+		} else {
+			authenticate.dataset.mode = "login"
+			loginFields.info.textContent = "Вам отправлено письмо подтверждения"
+		}
 	})
+	// Выход из аккаунта
+	logoutButton.addEventListener("click", async () => {
+		await supabase.auth.signOut()
+        window.location.reload()
+    })
 }

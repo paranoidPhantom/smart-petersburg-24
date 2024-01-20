@@ -33,6 +33,7 @@
 					</div>
 					<hr>
 					<div class="form login">
+						<p class="info"></p>
 						<div class="field">
 							<p>Почта</p>
 							<input type="text" name="email" placeholder="example@mail.ru">
@@ -62,6 +63,13 @@
 					</div>
 				</div>
 			</button>
+			<!-- В том случае если пользователь вошёл -->
+			<div id="authenticated">
+				<p class="note">Вы авторизованы под именем:</p>
+				<p class="name"></p>
+				<div class="divider"></div>
+				<button id="logout">Выйти</button>
+			</div>
 		</header>
 		<!-- Основной контент -->
 		<main>
