@@ -4,6 +4,7 @@
 :root {
 	font-family: "Raleway", sans-serif;
 	font-optical-sizing: auto;
+	color: white;
 
 	/* Глобальные переменные */
 	--header-height: 6rem;
